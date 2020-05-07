@@ -44,9 +44,9 @@ $app->get(
         while ($friend = $ret->fetchArray(SQLITE3_ASSOC)) {
             $friends[] = $friend;
         }
-		if ($friends === NULL){
-			return $response->withStatus(404)->withJson(['error' => 'This id does not exist']);
-		}
+	if ($friends === NULL){
+		return $response->withStatus(404)->withJson(['error' => 'This id does not exist']);
+	}
         return $response->withJson($friends);
 		
     }
@@ -99,9 +99,9 @@ $app->delete(
         while ($friend = $ret->fetchArray(SQLITE3_ASSOC)) {
             $friends[] = $friend;
         }
-		if ($friends === NULL){
-			return $response->withStatus(404)->withJson(['error' => 'This id does not exist']);
-		}
+	if ($friends === NULL){
+		return $response->withStatus(404)->withJson(['error' => 'This id does not exist']);
+	}
         $sql = "DELETE FROM 'participant' WHERE id = :id";
         $stmt = $db->prepare($sql);
 		$stmt->bindValue('id', $args['id']);
